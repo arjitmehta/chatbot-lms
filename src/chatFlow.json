@@ -1,0 +1,36 @@
+[
+    {
+      "id": "welcome",
+      "message": "Hi Arjit! What would you like to do?",
+      "type": "option",
+      "options": [
+        {
+          "label": "Continue Course",
+          "nextStepId": "continue-course",
+          "triggerAction": {
+            "type": "navigate",
+            "payload": "/course/intro"
+          }
+        },
+        {
+          "label": "Start New Course",
+          "nextStepId": "choose-course"
+        },
+        {
+          "label": "Go to Profile",
+          "nextStepId": "profile",
+          "triggerAction": {
+            "type": "navigate",
+            "payload": "/profile"
+          }
+        }
+      ]
+    },
+    {
+      "id": "continue-course",
+      "message": "Resuming your last session...",
+      "type": "message",
+      "next": "end"
+    }
+  ]
+  
