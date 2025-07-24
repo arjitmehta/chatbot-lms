@@ -3,6 +3,48 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, useNavigate } from 'react-router-dom';
 import { Bot } from 'lucide-react';
 import { chatFlow } from './chatFlow';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+function TypingIndicator() {
+  return (
+    <div className="d-flex align-items-center mb-2">
+      <div className="bg-light rounded-pill px-3 py-2 d-inline-flex align-items-center shadow-sm">
+        <span className="me-2 text-secondary">typing</span>
+        <span className="typing-dots">
+          <span className="dot"></span>
+          <span className="dot"></span>
+          <span className="dot"></span>
+        </span>
+      </div>
+      <style>
+        {`
+          .typing-dots {
+            display: inline-block;
+            height: 10px;
+            vertical-align: middle;
+          }
+          .typing-dots .dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            margin: 0 1px;
+            background: #6c757d;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: typing-bounce 1s infinite alternate;
+          }
+          .typing-dots .dot:nth-child(2) { animation-delay: 0.2s; }
+          .typing-dots .dot:nth-child(3) { animation-delay: 0.4s; }
+          @keyframes typing-bounce {
+            0% { transform: translateY(0); opacity: 0.5; }
+            50% { transform: translateY(-5px); opacity: 1; }
+            100% { transform: translateY(0); opacity: 0.5; }
+          }
+        `}
+      </style>
+    </div>
+  );
+}
 
 function ChatBot() {
   const [messages, setMessages] = useState([]);
@@ -96,69 +138,52 @@ function ChatBot() {
     }, 1500);
   };
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-4">
-      <div className="w-full max-w-md bg-white shadow-lg rounded-lg flex flex-col h-[80vh]">
-        <div className="bg-blue-600 text-white text-lg font-semibold p-4 rounded-t-lg flex items-center space-x-2">
-          <Bot className="w-5 h-5" />
+    <div className="container-fluid min-vh-100 d-flex align-items-center justify-content-center bg-light">
+      <div className="card shadow-lg" style={{ width: '100%', maxWidth: 420, height: '80vh', display: 'flex', flexDirection: 'column' }}>
+        <div className="card-header bg-primary text-white d-flex align-items-center">
+          <Bot className="me-2" />
           <span>ChatBot LMS</span>
         </div>
-        <div className="flex-1 overflow-y-auto p-4 space-y-4">
-          {messages.map((msg, i) => (
-            <div key={i} className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'}`}>
-              <div className={`px-4 py-2 rounded-xl max-w-xs text-sm ${
-                msg.type === 'user' ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-800'
-              }`}>
-                {msg.message}
-              </div>
+        <div className="card-body flex-grow-1 overflow-auto p-3 d-flex flex-column" style={{ background: '#f8f9fa' }}>
+          <div className="flex-grow-1 d-flex flex-column">
+            <div>
+              {messages.slice().map((msg, i) => (
+                <div key={i} className={`d-flex mb-2 ${msg.type === 'user' ? 'justify-content-end' : 'justify-content-start'}`}>
+                  <div className={`p-2 rounded-3 shadow-sm ${msg.type === 'user' ? 'bg-primary text-white' : 'bg-white text-dark border'}`}>
+                    {msg.message}
+                  </div>
+                </div>
+              ))}
+              {loading && <TypingIndicator />}
             </div>
-          ))}
-
-          {loading && (
-            <div className="flex justify-start">
-              <div className="px-4 py-2 rounded-xl max-w-xs text-sm bg-gray-200 text-gray-800 animate-pulse">Typing...</div>
-            </div>
-          )}
-
+          </div>
           {(() => {
             const last = messages[messages.length - 1];
-            // Check if the last message is a "Click to continue" prompt
             if (last?.options && last.options[0]?._continueData && !loading) {
               const continueOption = last.options[0];
               return (
-                <div className={`grid grid-cols-1 gap-2`}>
+                <div className="d-grid gap-2 mt-3">
                   <button
                     key={'continue-btn'}
                     onClick={() => handleContinueClick(continueOption)}
-                    className="bg-blue-100 text-blue-800 px-4 py-2 rounded hover:bg-blue-200 text-left ml-5 mr-5"
-                    style={{
-                      marginLeft: 10,
-                      marginRight: 10,
-                      marginTop: 10,
-                      marginBottom: 10,
-                    }}
+                    className="btn btn-outline-primary"
                   >
                     {continueOption.label}
                   </button>
                 </div>
               );
             } else if (last?.options && !loading) {
-              // Regular options, only show if not a continue prompt
               return (
-                <div className={`grid grid-cols-2 gap-2`}>
+                <div className="row g-2 mt-3">
                   {last.options.map((opt, idx) => (
-                    <button
-                      key={idx}
-                      onClick={() => handleOptionClick(opt)}
-                      className="bg-blue-100 text-blue-800 px-4 py-2 rounded hover:bg-blue-200 text-left ml-5 mr-5"
-                      style={{
-                        marginLeft: 10,
-                        marginRight: 10,
-                        marginTop: 10,
-                        marginBottom: 10,
-                      }}
-                    >
-                      {opt.label}
-                    </button>
+                    <div className="col-6" key={idx}>
+                      <button
+                        onClick={() => handleOptionClick(opt)}
+                        className="btn btn-outline-primary w-100"
+                      >
+                        {opt.label}
+                      </button>
+                    </div>
                   ))}
                 </div>
               );
@@ -166,7 +191,9 @@ function ChatBot() {
             return null;
           })()}
         </div>
-        <div className="p-2 border-t text-xs text-gray-400 text-center">LMS powered chatbot • No input required</div>
+        <div className="card-footer text-center text-muted small">
+          LMS powered chatbot • No input required
+        </div>
       </div>
     </div>
   );
