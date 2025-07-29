@@ -7,25 +7,25 @@ export const chatFlow = [
         label: "Resume Learning",
         nextStepId: "resume-learning",
         followUp: "Fantastic! Let's pick up right where you left off and keep that momentum going.",
-        continueUrl: "https://qa.numeracyforlife.com/login"
+        continueUrl: "https://qa.numeracyforlife.com/dashboard"
       },
       {
         label: "Explore the System",
         nextStepId: "explore-system",
         followUp: "It's great to explore! Let me walk you through the system starting from the home screen.",
-        continueUrl: "https://qa.numeracyforlife.com/login"
+        continueUrl: "https://qa.numeracyforlife.com/numeracyforlife_home"
       },
       {
         label: "Select a Course",
         nextStepId: "select-course",
         followUp: "Awesome! Let's help you find a new course to dive into.",
-        continueUrl: "https://qa.numeracyforlife.com/login"
+        // continueUrl: "https://qa.numeracyforlife.com/login"
       },
       {
         label: "Numbers gym",
         nextStepId: "numbers-gym",
         followUp: "You're going to love this! Numbers Gym - Fun game to sharpen your number skills. Let's jump in!",
-        continueUrl: "https://qa.numeracyforlife.com/login"
+        continueUrl: "https://qa.numeracyforlife.com/static/enumeracy_theme1/numeracyforlife_numbergym/index.html?source=home"
       }
     ]
   },
@@ -33,9 +33,9 @@ export const chatFlow = [
     id: "select-course",
     message: "Which area do you want to explore?",
     options: [
-      { label: "Simply Life", nextStepId: "confirm-life", followUp: "Great! Let's explore Simply Life." },
-      { label: "Simply Work", nextStepId: "confirm-work", followUp: "Fantastic! Let's check out Simply Work." },
-      { label: "Simply Study", nextStepId: "confirm-study", followUp: "Awesome! Let's begin Simply Study." }
+      { label: "Simply Life", nextStepId: "confirm-life", followUp: "Great! Let's explore Simply Life.\n Day-to-day scenarios that you may encounter which require you to manipulate numbers." },
+      { label: "Simply Work", nextStepId: "confirm-work", followUp: "Fantastic! Let's check out Simply Work.\n Numeracy to help you gain qualifications / pass exams." },
+      { label: "Simply Study", nextStepId: "confirm-study", followUp: "Awesome! Let's begin Simply Study.\n Real-life numeracy situations that you might face whilst at work or on an apprenticeship." }
     ]
   },
   // Confirmation nodes for each area
