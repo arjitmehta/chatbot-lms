@@ -34,8 +34,8 @@ export const chatFlow = [
     message: "Which area do you want to explore?",
     options: [
       { label: "Simply Life", nextStepId: "confirm-life", followUp: "Great! Let's explore Simply Life.\n Day-to-day scenarios that you may encounter which require you to manipulate numbers." },
-      { label: "Simply Work", nextStepId: "confirm-work", followUp: "Fantastic! Let's check out Simply Work.\n Numeracy to help you gain qualifications / pass exams." },
-      { label: "Simply Study", nextStepId: "confirm-study", followUp: "Awesome! Let's begin Simply Study.\n Real-life numeracy situations that you might face whilst at work or on an apprenticeship." }
+      { label: "Simply Work", nextStepId: "confirm-work", followUp: "Fantastic! Let's check out Simply Work.\n  Real-life numeracy situations that you might face whilst at work or on an apprenticeship. " },
+      { label: "Simply Study", nextStepId: "confirm-study", followUp: "Awesome! Let's begin Simply Study.\n Numeracy to help you gain qualifications / pass exams." }
     ]
   },
   // Confirmation nodes for each area
