@@ -91,8 +91,11 @@ function ChatBot() {
 
       const shouldShowOptionsImmediately = (
         option.nextStepId === "select-course" || // "Select a Course" directly shows options
-        option.nextStepId?.startsWith("module-") || // Module selections directly show topics
-        option.nextStepId?.startsWith("topic-") // Topic selections directly show scenarios
+        option.nextStepId?.startsWith("confirm-") || // Module selections directly show topics
+        option.nextStepId?.startsWith("sector-") || // Module selections directly show topics
+        option.nextStepId?.startsWith("course-") || // Topic selections directly show scenarios
+        option.nextStepId?.startsWith("module-") || // Subtopic selections directly show next options
+        option.nextStepId?.startsWith("scenario-")    // Scenario selections directly show next options
       );
 
       if (shouldShowOptionsImmediately) {
@@ -100,7 +103,7 @@ function ChatBot() {
           newMessages.push({ type: 'bot', ...originalBotReply });
         }
       } else {
-        // In all other cases, show the "Click to continue" button.
+        // In all other cases, show the "Click to continue" button as a link if continueUrl is present.
         newMessages.push({
           type: 'bot',
           message: 'Click to continue',
@@ -109,7 +112,8 @@ function ChatBot() {
             _continueData: {
               nextStepId: option.nextStepId, // Pass nextStepId to handleContinueClick
               triggerAction: option.triggerAction
-            }
+            },
+            continueUrl: option.continueUrl || null
           }]
         });
       }
@@ -161,6 +165,22 @@ function ChatBot() {
             const last = messages[messages.length - 1];
             if (last?.options && last.options[0]?._continueData && !loading) {
               const continueOption = last.options[0];
+              const continueUrl = continueOption.continueUrl;
+              if (continueUrl) {
+                return (
+                  <div className="d-grid gap-2 mt-3">
+                    <a
+                      key={'continue-link'}
+                      href={continueUrl}
+                      className="btn btn-outline-primary"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {continueOption.label}
+                    </a>
+                  </div>
+                );
+              }
               return (
                 <div className="d-grid gap-2 mt-3">
                   <button
