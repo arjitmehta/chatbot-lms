@@ -604,299 +604,106 @@ export const chatFlow = [
   // --- SIMPLY STUDY ---
   {
     id: "sector-study",
-    message: "Which Sector in Simply Study would you like to start?",
+    message: "Which topic in Simply Study would you like to start?",
     options: [
-      { label: "Reading", nextStepId: "module-study-reading", followUp: "Great choice! Let's dive into Reading." },
-      { label: "Memory", nextStepId: "module-study-memory", followUp: "Great choice! Let's dive into Memory." },
-      { label: "Practice", nextStepId: "module-study-practice", followUp: "Great choice! Let's dive into Practice." }
+      { label: "Percentages", nextStepId: "study-topic-percentages", followUp: "Great choice! Let's dive into Percentages." },
+      { label: "Ratio and Proportion", nextStepId: "study-topic-ratio-proportion", followUp: "Great choice! Let's dive into Ratio and Proportion." },
+      { label: "Numbers", nextStepId: "study-topic-numbers", followUp: "Great choice! Let's dive into Numbers." }
     ]
   },
-  // Reading branch
+  // --- Percentages ---
   {
-    id: "module-study-reading",
-    message: "Which topic in 'Reading'?",
+    id: "study-topic-percentages",
+    message: "Choose a section in Percentages:",
     options: [
-      { label: "Skimming", nextStepId: "topic-study-reading-skimming", followUp: "Awesome! Let's learn about Skimming." },
-      { label: "Scanning", nextStepId: "topic-study-reading-scanning", followUp: "Awesome! Let's learn about Scanning." }
+      { label: "Learning", nextStepId: "study-percentages-learning", followUp: "Let's start learning Percentages." },
+      { label: "Practice", nextStepId: "study-percentages-practice", followUp: "Let's practice Percentages." },
+      { label: "Review", nextStepId: "study-percentages-review", followUp: "Let's review Percentages." }
     ]
   },
+  // Learning - Percentages
   {
-    id: "topic-study-reading-skimming",
-    message: "Pick a subtopic for Skimming:",
+    id: "study-percentages-learning",
+    message: "Select a module in Learning Percentages:",
     options: [
-      { label: "Fast reading", nextStepId: "subtopic-study-reading-skimming-fast", followUp: "Let's dive into Fast reading." },
-      { label: "Focused reading", nextStepId: "subtopic-study-reading-skimming-focused", followUp: "Let's dive into Focused reading." }
+      { label: " Understanding Percentages", nextStepId: "study-percentages-learning-module1" },
+      { label: " Key Values of Percentages", nextStepId: "study-percentages-learning-module2" },
+      { label: " Interrelation of Numbers and Percentages", nextStepId: "study-percentages-learning-module3" },
+      { label: " Formula to Calculate Percentage, N% of X", nextStepId: "study-percentages-learning-module4" },
+      { label: " Link Between Percentages, Fractions, Decimals", nextStepId: "study-percentages-learning-module5" },
+      { label: " Inter-conversion of Fractions, Decimals, Percentages", nextStepId: "study-percentages-learning-module6" }
     ]
   },
+  { id: "study-percentages-learning-module1", message: " Understanding Percentages", options: [ { label: "Lesson 1", nextStepId: null, followUp: "Let's start Lesson 1 of Module 1." }, { label: "Quiz", nextStepId: null, followUp: "Let's take the Quiz for Module 1." } ] },
+  { id: "study-percentages-learning-module2", message: " Key Values of Percentages", options: [ { label: "Lesson 1", nextStepId: null, followUp: "Let's start Lesson 1 of Module 2." }, { label: "Lesson 2", nextStepId: null, followUp: "Let's start Lesson 2 of Module 2." }, { label: "Quiz", nextStepId: null, followUp: "Let's take the Quiz for Module 2." } ] },
+  { id: "study-percentages-learning-module3", message: " Interrelation of Numbers and Percentages", options: [ { label: "Lesson 1", nextStepId: null, followUp: "Let's start Lesson 1 of Module 3." }, { label: "Lesson 2", nextStepId: null, followUp: "Let's start Lesson 2 of Module 3." }, { label: "Quiz", nextStepId: null, followUp: "Let's take the Quiz for Module 3." } ] },
+  { id: "study-percentages-learning-module4", message: " Formula to Calculate Percentage, N% of X", options: [ { label: "Lesson 1", nextStepId: null, followUp: "Let's start Lesson 1 of Module 4." }, { label: "Quiz", nextStepId: null, followUp: "Let's take the Quiz for Module 4." } ] },
+  { id: "study-percentages-learning-module5", message: " Link Between Percentages, Fractions, Decimals", options: [ { label: "Lesson 1", nextStepId: null, followUp: "Let's start Lesson 1 of Module 5." }, { label: "Quiz", nextStepId: null, followUp: "Let's take the Quiz for Module 5." } ] },
+  { id: "study-percentages-learning-module6", message: " Inter-conversion of Fractions, Decimals, Percentages", options: [ { label: "Lesson 1", nextStepId: null, followUp: "Let's start Lesson 1 of Module 6." }, { label: "Quiz", nextStepId: null, followUp: "Let's take the Quiz for Module 6." } ] },
+  // Practice - Percentages
+  { id: "study-percentages-practice", message: "Select an exercise in Practice Percentages:", options: [ { label: "Exercise 1: Activity Based", nextStepId: null, followUp: "Let's do Activity Based Exercise 1." }, { label: "Exercise 2: Error Search", nextStepId: null, followUp: "Let's do Error Search Exercise 2." }, { label: "Exercise 3: Exam Based", nextStepId: null, followUp: "Let's do Exam Based Exercise 3." }, { label: "Exercise 4: Exam Based", nextStepId: null, followUp: "Let's do Exam Based Exercise 4." } ] },
+  // Review - Percentages
+  { id: "study-percentages-review", message: "Select a quiz in Review Percentages:", options: [ { label: "Quiz 1", nextStepId: null, followUp: "Let's take Quiz 1 for Review." }, { label: "Quiz 2", nextStepId: null, followUp: "Let's take Quiz 2 for Review." } ] },
+  // --- Ratio and Proportion ---
   {
-    id: "subtopic-study-reading-skimming-fast",
-    message: "Pick a scenario for Fast reading:",
+    id: "study-topic-ratio-proportion",
+    message: "Choose a section in Ratio and Proportion:",
     options: [
-      { label: "Reading a book", nextStepId: "scenario-study-reading-skimming-fast-book", followUp: "Let's check out Reading a book." },
-      { label: "Reading a news article", nextStepId: "scenario-study-reading-skimming-fast-news", followUp: "Let's check out Reading a news article." }
+      { label: "Learning", nextStepId: "study-ratio-learning", followUp: "Let's start learning Ratio and Proportion." },
+      { label: "Practice", nextStepId: "study-ratio-practice", followUp: "Let's practice Ratio and Proportion." },
+      { label: "Review", nextStepId: "study-ratio-review", followUp: "Let's review Ratio and Proportion." }
     ]
   },
+  // Learning - Ratio and Proportion
   {
-    id: "scenario-study-reading-skimming-fast-book",
-    message: "Let's understand Skimming with Fast reading and Reading a book.",
+    id: "study-ratio-learning",
+    message: "Select a module in Learning Ratio and Proportion:",
     options: [
-      { label: "Continue", nextStepId: null, followUp: "Great! You chose Reading a book." }
+      { label: " Introduction to Ratio", nextStepId: "study-ratio-learning-module1" },
+      { label: " Difference between Fractions and Ratio", nextStepId: "study-ratio-learning-module2" },
+      { label: " Introduction to Proportion", nextStepId: "study-ratio-learning-module3" },
+      { label: " Equal and Unequal Sharing", nextStepId: "study-ratio-learning-module4" },
+      { label: " Link between Ratio and Percentages", nextStepId: "study-ratio-learning-module5" }
     ]
   },
+  { id: "study-ratio-learning-module1", message: " Introduction to Ratio", options: [ { label: "Lesson 1", nextStepId: null, followUp: "Let's start Lesson 1 of Module 1." }, { label: "Quiz", nextStepId: null, followUp: "Let's take the Quiz for Module 1." } ] },
+  { id: "study-ratio-learning-module2", message: " Difference between Fractions and Ratio", options: [ { label: "Lesson 1", nextStepId: null, followUp: "Let's start Lesson 1 of Module 2." }, { label: "Quiz", nextStepId: null, followUp: "Let's take the Quiz for Module 2." } ] },
+  { id: "study-ratio-learning-module3", message: " Introduction to Proportion", options: [ { label: "Lesson 1", nextStepId: null, followUp: "Let's start Lesson 1 of Module 3." }, { label: "Quiz", nextStepId: null, followUp: "Let's take the Quiz for Module 3." } ] },
+  { id: "study-ratio-learning-module4", message: " Equal and Unequal Sharing", options: [ { label: "Lesson 1", nextStepId: null, followUp: "Let's start Lesson 1 of Module 4." }, { label: "Quiz", nextStepId: null, followUp: "Let's take the Quiz for Module 4." } ] },
+  { id: "study-ratio-learning-module5", message: " Link between Ratio and Percentages", options: [ { label: "Lesson 1", nextStepId: null, followUp: "Let's start Lesson 1 of Module 5." }, { label: "Quiz", nextStepId: null, followUp: "Let's take the Quiz for Module 5." } ] },
+  // Practice - Ratio and Proportion
+  { id: "study-ratio-practice", message: "Select an exercise in Practice Ratio and Proportion:", options: [ { label: "Exercise 1: Activity Based", nextStepId: null, followUp: "Let's do Activity Based Exercise 1." }, { label: "Exercise 2: Error Search", nextStepId: null, followUp: "Let's do Error Search Exercise 2." }, { label: "Exercise 3: Exam Based", nextStepId: null, followUp: "Let's do Exam Based Exercise 3." }, { label: "Exercise 4: Exam Based", nextStepId: null, followUp: "Let's do Exam Based Exercise 4." } ] },
+  // Review - Ratio and Proportion
+  { id: "study-ratio-review", message: "Select a quiz in Review Ratio and Proportion:", options: [ { label: "Quiz 1", nextStepId: null, followUp: "Let's take Quiz 1 for Review." }, { label: "Quiz 2", nextStepId: null, followUp: "Let's take Quiz 2 for Review." } ] },
+  // --- Numbers ---
   {
-    id: "scenario-study-reading-skimming-fast-news",
-    message: "Let's understand Skimming with Fast reading and Reading a news article.",
+    id: "study-topic-numbers",
+    message: "Choose a section in Numbers:",
     options: [
-      { label: "Continue", nextStepId: null, followUp: "Great! You chose Reading a news article." }
+      { label: "Learning", nextStepId: "study-numbers-learning", followUp: "Let's start learning Numbers." },
+      { label: "Practice", nextStepId: "study-numbers-practice", followUp: "Let's practice Numbers." },
+      { label: "Review", nextStepId: "study-numbers-review", followUp: "Let's review Numbers." }
     ]
   },
+  // Learning - Numbers
   {
-    id: "subtopic-study-reading-skimming-focused",
-    message: "Pick a scenario for Focused reading:",
+    id: "study-numbers-learning",
+    message: "Select a module in Learning Numbers:",
     options: [
-      { label: "Reading a technical document", nextStepId: "scenario-study-reading-skimming-focused-technical", followUp: "Let's check out Reading a technical document." },
-      { label: "Reading a novel", nextStepId: "scenario-study-reading-skimming-focused-novel", followUp: "Let's check out Reading a novel." }
+      { label: " Estimation and Rounding", nextStepId: "study-numbers-learning-module1" },
+      { label: " Fractions", nextStepId: "study-numbers-learning-module2" },
+      { label: " Decimals", nextStepId: "study-numbers-learning-module3" },
+      { label: " Link between Fractions and Decimals", nextStepId: "study-numbers-learning-module4" }
     ]
   },
-  {
-    id: "scenario-study-reading-skimming-focused-technical",
-    message: "Let's understand Skimming with Focused reading and Reading a technical document.",
-    options: [
-      { label: "Continue", nextStepId: null, followUp: "Great! You chose Reading a technical document." }
-    ]
-  },
-  {
-    id: "scenario-study-reading-skimming-focused-novel",
-    message: "Let's understand Skimming with Focused reading and Reading a novel.",
-    options: [
-      { label: "Continue", nextStepId: null, followUp: "Great! You chose Reading a novel." }
-    ]
-  },
-  {
-    id: "topic-study-reading-scanning",
-    message: "Pick a subtopic for Scanning:",
-    options: [
-      { label: "Visual scanning", nextStepId: "subtopic-study-reading-scanning-visual", followUp: "Let's dive into Visual scanning." },
-      { label: "Keyword scanning", nextStepId: "subtopic-study-reading-scanning-keyword", followUp: "Let's dive into Keyword scanning." }
-    ]
-  },
-  {
-    id: "subtopic-study-reading-scanning-visual",
-    message: "Pick a scenario for Visual scanning:",
-    options: [
-      { label: "Reading a map", nextStepId: "scenario-study-reading-scanning-visual-map", followUp: "Let's check out Reading a map." },
-      { label: "Reading a chart", nextStepId: "scenario-study-reading-scanning-visual-chart", followUp: "Let's check out Reading a chart." }
-    ]
-  },
-  {
-    id: "scenario-study-reading-scanning-visual-map",
-    message: "Let's understand Scanning with Visual scanning and Reading a map.",
-    options: [
-      { label: "Continue", nextStepId: null, followUp: "Great! You chose Reading a map." }
-    ]
-  },
-  {
-    id: "scenario-study-reading-scanning-visual-chart",
-    message: "Let's understand Scanning with Visual scanning and Reading a chart.",
-    options: [
-      { label: "Continue", nextStepId: null, followUp: "Great! You chose Reading a chart." }
-    ]
-  },
-  {
-    id: "subtopic-study-reading-scanning-keyword",
-    message: "Pick a scenario for Keyword scanning:",
-    options: [
-      { label: "Reading a headline", nextStepId: "scenario-study-reading-scanning-keyword-headline", followUp: "Let's check out Reading a headline." },
-      { label: "Reading a paragraph", nextStepId: "scenario-study-reading-scanning-keyword-paragraph", followUp: "Let's check out Reading a paragraph." }
-    ]
-  },
-  {
-    id: "scenario-study-reading-scanning-keyword-headline",
-    message: "Let's understand Scanning with Keyword scanning and Reading a headline.",
-    options: [
-      { label: "Continue", nextStepId: null, followUp: "Great! You chose Reading a headline." }
-    ]
-  },
-  {
-    id: "scenario-study-reading-scanning-keyword-paragraph",
-    message: "Let's understand Scanning with Keyword scanning and Reading a paragraph.",
-    options: [
-      { label: "Continue", nextStepId: null, followUp: "Great! You chose Reading a paragraph." }
-    ]
-  },
-  // Memory branch
-  {
-    id: "module-study-memory",
-    message: "Which topic in 'Memory'?",
-    options: [
-      { label: "Mnemonics", nextStepId: "topic-study-memory-mnemonics", followUp: "Awesome! Let's learn about Mnemonics." },
-      { label: "Spaced Repetition", nextStepId: "topic-study-memory-spaced-repetition", followUp: "Awesome! Let's learn about Spaced Repetition." }
-    ]
-  },
-  {
-    id: "topic-study-memory-mnemonics",
-    message: "Pick a subtopic for Mnemonics:",
-    options: [
-      { label: "Visual mnemonics", nextStepId: "subtopic-study-memory-mnemonics-visual", followUp: "Let's dive into Visual mnemonics." },
-      { label: "Acoustic mnemonics", nextStepId: "subtopic-study-memory-mnemonics-acoustic", followUp: "Let's dive into Acoustic mnemonics." }
-    ]
-  },
-  {
-    id: "subtopic-study-memory-mnemonics-visual",
-    message: "Pick a scenario for Visual mnemonics:",
-    options: [
-      { label: "Visualizing a word", nextStepId: "scenario-study-memory-mnemonics-visual-word", followUp: "Let's check out Visualizing a word." },
-      { label: "Visualizing a number", nextStepId: "scenario-study-memory-mnemonics-visual-number", followUp: "Let's check out Visualizing a number." }
-    ]
-  },
-  {
-    id: "scenario-study-memory-mnemonics-visual-word",
-    message: "Let's understand Mnemonics with Visual mnemonics and Visualizing a word.",
-    options: [
-      { label: "Continue", nextStepId: null, followUp: "Great! You chose Visualizing a word." }
-    ]
-  },
-  {
-    id: "scenario-study-memory-mnemonics-visual-number",
-    message: "Let's understand Mnemonics with Visual mnemonics and Visualizing a number.",
-    options: [
-      { label: "Continue", nextStepId: null, followUp: "Great! You chose Visualizing a number." }
-    ]
-  },
-  {
-    id: "subtopic-study-memory-mnemonics-acoustic",
-    message: "Pick a scenario for Acoustic mnemonics:",
-    options: [
-      { label: "Reciting a poem", nextStepId: "scenario-study-memory-mnemonics-acoustic-poem", followUp: "Let's check out Reciting a poem." },
-      { label: "Reciting a phone number", nextStepId: "scenario-study-memory-mnemonics-acoustic-phone", followUp: "Let's check out Reciting a phone number." }
-    ]
-  },
-  {
-    id: "scenario-study-memory-mnemonics-acoustic-poem",
-    message: "Let's understand Mnemonics with Acoustic mnemonics and Reciting a poem.",
-    options: [
-      { label: "Continue", nextStepId: null, followUp: "Great! You chose Reciting a poem." }
-    ]
-  },
-  {
-    id: "scenario-study-memory-mnemonics-acoustic-phone",
-    message: "Let's understand Mnemonics with Acoustic mnemonics and Reciting a phone number.",
-    options: [
-      { label: "Continue", nextStepId: null, followUp: "Great! You chose Reciting a phone number." }
-    ]
-  },
-  {
-    id: "topic-study-memory-spaced-repetition",
-    message: "Pick a subtopic for Spaced Repetition:",
-    options: [
-      { label: "Basic repetition", nextStepId: "subtopic-study-memory-spaced-repetition-basic", followUp: "Let's dive into Basic repetition." },
-      { label: "Advanced repetition", nextStepId: "subtopic-study-memory-spaced-repetition-advanced", followUp: "Let's dive into Advanced repetition." }
-    ]
-  },
-  {
-    id: "subtopic-study-memory-spaced-repetition-basic",
-    message: "Pick a scenario for Basic repetition:",
-    options: [
-      { label: "Reciting a list", nextStepId: "scenario-study-memory-spaced-repetition-basic-list", followUp: "Let's check out Reciting a list." },
-      { label: "Reading a sentence", nextStepId: "scenario-study-memory-spaced-repetition-basic-sentence", followUp: "Let's check out Reading a sentence." }
-    ]
-  },
-  {
-    id: "scenario-study-memory-spaced-repetition-basic-list",
-    message: "Let's understand Spaced Repetition with Basic repetition and Reciting a list.",
-    options: [
-      { label: "Continue", nextStepId: null, followUp: "Great! You chose Reciting a list." }
-    ]
-  },
-  {
-    id: "scenario-study-memory-spaced-repetition-basic-sentence",
-    message: "Let's understand Spaced Repetition with Basic repetition and Reading a sentence.",
-    options: [
-      { label: "Continue", nextStepId: null, followUp: "Great! You chose Reading a sentence." }
-    ]
-  },
-  {
-    id: "subtopic-study-memory-spaced-repetition-advanced",
-    message: "Pick a scenario for Advanced repetition:",
-    options: [
-      { label: "Complex math problems", nextStepId: "scenario-study-memory-spaced-repetition-advanced-math", followUp: "Let's check out Complex math problems." },
-      { label: "Historical dates", nextStepId: "scenario-study-memory-spaced-repetition-advanced-dates", followUp: "Let's check out Historical dates." }
-    ]
-  },
-  {
-    id: "scenario-study-memory-spaced-repetition-advanced-math",
-    message: "Let's understand Spaced Repetition with Advanced repetition and Complex math problems.",
-    options: [
-      { label: "Continue", nextStepId: null, followUp: "Great! You chose Complex math problems." }
-    ]
-  },
-  {
-    id: "scenario-study-memory-spaced-repetition-advanced-dates",
-    message: "Let's understand Spaced Repetition with Advanced repetition and Historical dates.",
-    options: [
-      { label: "Continue", nextStepId: null, followUp: "Great! You chose Historical dates." }
-    ]
-  },
-  // Practice branch
-  {
-    id: "module-study-practice",
-    message: "Which topic in 'Practice'?",
-    options: [
-      { label: "Mock Tests", nextStepId: "topic-study-practice-mock-tests", followUp: "Awesome! Let's learn about Mock Tests." }
-    ]
-  },
-  {
-    id: "topic-study-practice-mock-tests",
-    message: "Pick a subtopic for Mock Tests:",
-    options: [
-      { label: "Practice tests", nextStepId: "subtopic-study-practice-mock-tests-practice", followUp: "Let's dive into Practice tests." },
-      { label: "Analyze results", nextStepId: "subtopic-study-practice-mock-tests-analyze", followUp: "Let's dive into Analyze results." }
-    ]
-  },
-  {
-    id: "subtopic-study-practice-mock-tests-practice",
-    message: "Pick a scenario for Practice tests:",
-    options: [
-      { label: "Practice a subject", nextStepId: "scenario-study-practice-mock-tests-practice-subject", followUp: "Let's check out Practice a subject." },
-      { label: "Practice a skill", nextStepId: "scenario-study-practice-mock-tests-practice-skill", followUp: "Let's check out Practice a skill." }
-    ]
-  },
-  {
-    id: "scenario-study-practice-mock-tests-practice-subject",
-    message: "Let's understand Mock Tests with Practice tests and Practice a subject.",
-    options: [
-      { label: "Continue", nextStepId: null, followUp: "Great! You chose Practice a subject." }
-    ]
-  },
-  {
-    id: "scenario-study-practice-mock-tests-practice-skill",
-    message: "Let's understand Mock Tests with Practice tests and Practice a skill.",
-    options: [
-      { label: "Continue", nextStepId: null, followUp: "Great! You chose Practice a skill." }
-    ]
-  },
-  {
-    id: "subtopic-study-practice-mock-tests-analyze",
-    message: "Pick a scenario for Analyze results:",
-    options: [
-      { label: "Review mistakes", nextStepId: "scenario-study-practice-mock-tests-analyze-mistakes", followUp: "Let's check out Review mistakes." },
-      { label: "Improve strategies", nextStepId: "scenario-study-practice-mock-tests-analyze-strategies", followUp: "Let's check out Improve strategies." }
-    ]
-  },
-  {
-    id: "scenario-study-practice-mock-tests-analyze-mistakes",
-    message: "Let's understand Mock Tests with Analyze results and Review mistakes.",
-    options: [
-      { label: "Continue", nextStepId: null, followUp: "Great! You chose Review mistakes." }
-    ]
-  },
-  {
-    id: "scenario-study-practice-mock-tests-analyze-strategies",
-    message: "Let's understand Mock Tests with Analyze results and Improve strategies.",
-    options: [
-      { label: "Continue", nextStepId: null, followUp: "Great! You chose Improve strategies." }
-    ]
-  },
+  { id: "study-numbers-learning-module1", message: " Estimation and Rounding", options: [ { label: "Lesson 1", nextStepId: null, followUp: "Let's start Lesson 1 of Module 1." }, { label: "Quiz 1", nextStepId: null, followUp: "Let's take Quiz 1 for Module 1." } ] },
+  { id: "study-numbers-learning-module2", message: " Fractions", options: [ { label: "Lesson 1", nextStepId: null, followUp: "Let's start Lesson 1 of Module 2." }, { label: "Lesson 2", nextStepId: null, followUp: "Let's start Lesson 2 of Module 2." }, { label: "Quiz", nextStepId: null, followUp: "Let's take the Quiz for Module 2." } ] },
+  { id: "study-numbers-learning-module3", message: " Decimals", options: [ { label: "Lesson 1", nextStepId: null, followUp: "Let's start Lesson 1 of Module 3." }, { label: "Quiz", nextStepId: null, followUp: "Let's take the Quiz for Module 3." } ] },
+  { id: "study-numbers-learning-module4", message: " Link between Fractions and Decimals", options: [ { label: "Lesson 1", nextStepId: null, followUp: "Let's start Lesson 1 of Module 4." }, { label: "Quiz", nextStepId: null, followUp: "Let's take the Quiz for Module 4." } ] },
+  // Practice - Numbers
+  { id: "study-numbers-practice", message: "Select an exercise in Practice Numbers:", options: [ { label: "Exercise 1: Activity Based", nextStepId: null, followUp: "Let's do Activity Based Exercise 1." }, { label: "Exercise 2: Error Search", nextStepId: null, followUp: "Let's do Error Search Exercise 2." }, { label: "Exercise 3: Exam Based", nextStepId: null, followUp: "Let's do Exam Based Exercise 3." }, { label: "Exercise 4: Exam Based", nextStepId: null, followUp: "Let's do Exam Based Exercise 4." } ] },
+  // Review - Numbers
+  { id: "study-numbers-review", message: "Select a quiz in Review Numbers:", options: [ { label: "Quiz 1", nextStepId: null, followUp: "Let's take Quiz 1 for Review." }, { label: "Quiz 2", nextStepId: null, followUp: "Let's take Quiz 2 for Review." } ] },
 
   // At the very end of each path, add a node for navigation:
   {

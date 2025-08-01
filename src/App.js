@@ -94,7 +94,9 @@ function ChatBot() {
         option.nextStepId?.startsWith("confirm-") || // Module selections directly show topics
         option.nextStepId?.startsWith("sector-") || // Module selections directly show topics
         option.nextStepId?.startsWith("course-") || // Topic selections directly show scenarios
-        option.nextStepId?.startsWith("module-") || // Subtopic selections directly show next options
+        option.nextStepId?.startsWith("module-") || 
+        option.nextStepId?.startsWith("study-") || // Subtopic selections directly show next options
+        // Subtopic selections directly show next options
         option.nextStepId?.startsWith("scenario-")    // Scenario selections directly show next options
       );
 
